@@ -18,11 +18,15 @@ module BuildPack
       private
 
       def init_paths(build_dir, cache_dir)
-        @bin_path = "#{build_dir}/bin"
-        @tmp_path = "#{build_dir}/tmp"
+        @bin_path = "#{build_dir}bin"
+        @tmp_path = "#{build_dir}tmp"
         @mysql_path = "#{@tmp_path}/mysql"
         @mysql_binaries = "#{@mysql_path}/usr/bin"
-        @mysql_pkg = "#{cache_dir}/mysql.deb"
+        @mysql_pkg = "#{cache_dir}mysql.deb"
+
+        Logger.log_header("Log Paths")
+
+        Logger.log ['bin_path' => @bin_path, 'tmp_path' => @tmp_path, 'mysql_path' => @mysql_path, 'mysql_binaries'=> @mysql_binaries, 'mysql_pkg' => @mysql_pkg ]
       end
 
       def make_dirs
